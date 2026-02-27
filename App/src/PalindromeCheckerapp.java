@@ -1,23 +1,25 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
 public class PalindromeCheckerapp {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        // Stores a predefined string
-        String input = "madam";
+        System.out.print("Enter a string: ");
+        String original = scanner.nextLine();
 
-        System.out.println("Input text: " + input);
+        String reversed = "";
 
-        boolean isPalindrome = true;
-
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        // Iterate the string in reverse order
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed += original.charAt(i);
         }
 
-        System.out.println("Is it a Palindrome? : " + isPalindrome);
+        // Compare original and reversed strings
+        if (original.equals(reversed)) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is NOT a palindrome.");
+        }
 
+        scanner.close();
     }
 }
